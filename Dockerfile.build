@@ -6,5 +6,5 @@ RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 COPY project.clj $APP_HOME
 RUN lein do clean, deps
-COPY . /usr/src/app
-RUN mv "$(lein do test, uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" app-standalone.jar
+COPY . $APP_HOME
+RUN mv "$(lein do test, uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" $APP_HOME/app-standalone.jar
