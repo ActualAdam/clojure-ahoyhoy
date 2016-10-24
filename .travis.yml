@@ -5,7 +5,7 @@ script:
  - docker build -t build-img -f ./Dockerfile.build .
  - docker create --name build-container build-img /bin/sh
  - mkdir ./target
- - docker cp build-container:/usr/src/app/app-snapshot.jar ./target/app-snapshot.jar
+ - docker cp build-container:/usr/src/app/app-standalone.jar ./target/app-standalone.jar
  - docker build . -t actualadam/clojure-ahoyhoy
 
 
